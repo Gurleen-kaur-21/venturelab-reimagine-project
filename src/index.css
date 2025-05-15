@@ -7,7 +7,7 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
+    --background: 210 40% 98%;
     --foreground: 222.2 84% 4.9%;
 
     --card: 0 0% 100%;
@@ -16,16 +16,16 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 210 100% 35%;
+    --primary: 221 83% 53%;
     --primary-foreground: 210 40% 98%;
 
-    --secondary: 210 40% 96.1%;
+    --secondary: 217.2 91.2% 59.8%;
     --secondary-foreground: 222.2 47.4% 11.2%;
 
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
 
-    --accent: 210 40% 96.1%;
+    --accent: 24 94% 53%;
     --accent-foreground: 222.2 47.4% 11.2%;
 
     --destructive: 0 84.2% 60.2%;
@@ -33,9 +33,9 @@
 
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --ring: 221 83% 53%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
   }
 
   * {
@@ -44,10 +44,16 @@
 
   body {
     @apply bg-background text-foreground font-sans;
+    scroll-behavior: smooth;
   }
 
   .section-title {
-    @apply text-3xl md:text-4xl lg:text-5xl font-bold text-venture-dark font-heading mb-4;
+    @apply text-3xl md:text-4xl lg:text-5xl font-bold text-venture-dark font-heading mb-4 relative;
+  }
+  
+  .section-title::after {
+    content: '';
+    @apply block w-20 h-1 bg-venture-accent mt-4 mb-6;
   }
 
   .section-subtitle {
@@ -56,5 +62,27 @@
   
   .gradient-bg {
     @apply bg-gradient-to-r from-venture-blue to-venture-lightblue;
+  }
+  
+  .glass-card {
+    @apply backdrop-blur-sm bg-white/90 border border-white/20 shadow-lg;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-venture-blue text-white px-6 py-3 rounded-md font-medium hover:bg-venture-darkblue transition-colors duration-300;
+  }
+  
+  .btn-outline {
+    @apply border-2 border-venture-blue text-venture-blue px-6 py-3 rounded-md font-medium hover:bg-venture-blue hover:text-white transition-colors duration-300;
+  }
+  
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-xl hover:-translate-y-1;
+  }
+  
+  .animated-underline {
+    @apply relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-venture-accent hover:after:w-full after:transition-all after:duration-300;
   }
 }

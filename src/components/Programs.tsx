@@ -1,4 +1,6 @@
 
+import { useInView } from "react-intersection-observer";
+import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { 
   Card, 
@@ -8,6 +10,7 @@ import {
   CardHeader, 
   CardTitle 
 } from "@/components/ui/card";
+import { CheckCircle, Calendar, Clock, Users, ArrowRight } from "lucide-react";
 
 const programs = [
   {
@@ -21,7 +24,10 @@ const programs = [
       "Legal and IP support",
       "Business development assistance"
     ],
-    icon: "🚀"
+    icon: "🚀",
+    duration: "6 Months",
+    cohortSize: "10 Startups",
+    applications: "Open"
   },
   {
     id: 2,
@@ -34,7 +40,10 @@ const programs = [
       "Industry-specific mentoring",
       "Growth hacking workshops"
     ],
-    icon: "⚡"
+    icon: "⚡",
+    duration: "3 Months",
+    cohortSize: "8 Startups",
+    applications: "Opening Soon"
   },
   {
     id: 3,
@@ -47,54 +56,118 @@ const programs = [
       "Business model canvas",
       "Pitch deck preparation"
     ],
-    icon: "💡"
+    icon: "💡",
+    duration: "2 Months",
+    cohortSize: "15 Startups",
+    applications: "Open"
   }
 ];
 
 const Programs = () => {
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
+  const container = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.3,
+      },
+    },
+  };
+
+  const item = {
+    hidden: { opacity: 0, y: 20 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+  };
+
   return (
-    <section id="programs" className="py-20 bg-venture-gray">
+    <section id="programs" className="py-20 bg-venture-light" ref={ref}>
       <div className="container mx-auto px-4 md:px-6">
-        <div className="text-center mb-16">
-          <span className="inline-block text-venture-blue font-semibold tracking-wider uppercase text-sm mb-2">Our Programs</span>
-          <h2 className="section-title">Tailored Support for Every Stage</h2>
+        <motion.div 
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{ duration: 0.6 }}
+        >
+          <span className="inline-flex items-center px-3 py-1 rounded-full bg-venture-blue/10 text-venture-blue text-sm font-medium mb-3">
+            Our Programs
+          </span>
+          <h2 className="section-title mx-auto">Tailored Support for Every Stage</h2>
           <p className="section-subtitle">
             We offer specialized programs designed to support entrepreneurs at different stages of their journey, from ideation to scaling.
           </p>
-        </div>
+        </motion.div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <motion.div 
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          variants={container}
+          initial="hidden"
+          animate={inView ? "show" : "hidden"}
+        >
           {programs.map((program) => (
-            <Card key={program.id} className="bg-white shadow-md hover:shadow-xl transition-shadow duration-300">
-              <CardHeader>
-                <div className="text-4xl mb-4">{program.icon}</div>
-                <CardTitle className="text-2xl font-heading font-bold text-venture-dark">{program.title}</CardTitle>
-                <CardDescription className="text-muted-foreground">{program.description}</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <ul className="space-y-2">
-                  {program.features.map((feature, index) => (
-                    <li key={index} className="flex items-start">
-                      <svg className="h-5 w-5 text-venture-blue flex-shrink-0 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
-                      </svg>
-                      <span>{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-              </CardContent>
-              <CardFooter>
-                <Button variant="outline" className="w-full border-venture-blue text-venture-blue hover:bg-venture-blue hover:text-white">Learn More</Button>
-              </CardFooter>
-            </Card>
+            <motion.div key={program.id} variants={item}>
+              <Card className="bg-white shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden border-0">
+                <div className="h-2 bg-gradient-to-r from-venture-blue to-venture-lightblue"></div>
+                <CardHeader>
+                  <div className="text-4xl mb-4">{program.icon}</div>
+                  <div className="flex justify-between items-center mb-2">
+                    <CardTitle className="text-2xl font-heading font-bold text-venture-dark">{program.title}</CardTitle>
+                    <span className={`text-xs px-2 py-1 rounded-full ${
+                      program.applications === "Open" ? "bg-green-100 text-green-800" : "bg-amber-100 text-amber-800"
+                    }`}>{program.applications}</span>
+                  </div>
+                  <CardDescription className="text-muted-foreground">{program.description}</CardDescription>
+                </CardHeader>
+                
+                <CardContent>
+                  <div className="flex gap-4 mb-4">
+                    <div className="flex items-center gap-1 text-sm">
+                      <Calendar className="h-4 w-4 text-venture-blue" />
+                      <span>{program.duration}</span>
+                    </div>
+                    <div className="flex items-center gap-1 text-sm">
+                      <Users className="h-4 w-4 text-venture-blue" />
+                      <span>{program.cohortSize}</span>
+                    </div>
+                  </div>
+                  
+                  <h4 className="font-medium text-venture-dark mb-3">What you get:</h4>
+                  <ul className="space-y-2">
+                    {program.features.map((feature, index) => (
+                      <li key={index} className="flex items-start">
+                        <CheckCircle className="h-4 w-4 text-venture-accent flex-shrink-0 mr-2 mt-1" />
+                        <span className="text-sm">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </CardContent>
+                
+                <CardFooter className="pt-2">
+                  <Button variant="outline" className="w-full border-venture-blue text-venture-blue hover:bg-venture-blue hover:text-white gap-2 group">
+                    Learn More
+                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  </Button>
+                </CardFooter>
+              </Card>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
         
-        <div className="mt-16 text-center">
-          <Button size="lg" className="gradient-bg hover:opacity-90">
+        <motion.div 
+          className="mt-16 text-center"
+          initial={{ opacity: 0 }}
+          animate={inView ? { opacity: 1 } : { opacity: 0 }}
+          transition={{ duration: 0.6, delay: 0.8 }}
+        >
+          <Button size="lg" className="gradient-bg hover:opacity-90 rounded-full">
             Apply to Our Programs
           </Button>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

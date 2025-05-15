@@ -64,10 +64,13 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
 				venture: {
-					blue: '#0056b3',
-					lightblue: '#2a7dd1',
-					gray: '#f5f8fa',
-					dark: '#333333'
+					blue: '#2563EB',      // Updated to more modern blue
+					lightblue: '#60A5FA', // Updated lighter blue
+					darkblue: '#1E40AF',  // Added dark blue for depth
+					gray: '#F8FAFC',      // Slightly updated gray
+					dark: '#1E293B',      // Updated darker shade
+					accent: '#F97316',    // Added orange accent color
+					light: '#F1F5F9'      // Added light shade
 				}
 			},
 			borderRadius: {
@@ -109,12 +112,27 @@ export default {
 					to: {
 						opacity: '0'
 					}
+				},
+				'slide-from-left': {
+					'0%': { transform: 'translateX(-100%)' },
+					'100%': { transform: 'translateX(0)' }
+				},
+				'slide-from-right': {
+					'0%': { transform: 'translateX(100%)' },
+					'100%': { transform: 'translateX(0)' }
+				},
+				'float': {
+					'0%, 100%': { transform: 'translateY(0)' },
+					'50%': { transform: 'translateY(-10px)' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				'fade-in': 'fade-in 0.5s ease-out forwards',
+				'slide-from-left': 'slide-from-left 0.5s ease-out forwards',
+				'slide-from-right': 'slide-from-right 0.5s ease-out forwards',
+				'float': 'float 3s ease-in-out infinite'
 			},
 			fontFamily: {
 				sans: ['Inter', 'sans-serif'],
