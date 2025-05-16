@@ -35,7 +35,7 @@ const Hero = () => {
             </div>
             
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-venture-dark font-heading leading-tight">
-              Transforming <span className="text-venture-blue">Ideas</span> into <span className="text-venture-accent">Enterprise</span>
+              Where <span className="text-venture-blue">Innovation</span> Meets <span className="text-venture-accent">Opportunity</span>
             </h1>
             
             <p className="text-lg md:text-xl text-gray-700">
