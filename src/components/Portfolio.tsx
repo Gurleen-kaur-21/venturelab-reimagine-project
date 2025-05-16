@@ -5,51 +5,51 @@ import { Button } from "@/components/ui/button";
 const portfolioCompanies = [
   {
     id: 1,
-    name: "TechInnovate",
+    name: "MedAssist AI",
     category: "AI & ML",
-    description: "Using AI to revolutionize customer service automation with intelligent chatbots.",
+    description: "AI-driven diagnostic assistant helping physicians detect diseases from medical imaging with 98% accuracy.",
     image: "bg-gray-300",
-    funding: "$500K"
+    funding: "₹1.8 Cr"
   },
   {
     id: 2,
-    name: "GreenEnergy",
+    name: "SolarDwellings",
     category: "CleanTech",
-    description: "Developing sustainable energy solutions for residential buildings.",
+    description: "Developing integrated solar solutions for affordable residential housing that reduce energy costs by 60%.",
     image: "bg-gray-300",
-    funding: "$750K"
+    funding: "₹2.5 Cr"
   },
   {
     id: 3,
-    name: "HealthPlus",
+    name: "VitalTrack",
     category: "HealthTech",
-    description: "Remote patient monitoring platform for chronic disease management.",
+    description: "Remote patient monitoring platform for chronic diseases using non-invasive wearable technology.",
     image: "bg-gray-300",
-    funding: "$1.2M"
+    funding: "₹3.2 Cr"
   },
   {
     id: 4,
-    name: "FinBox",
+    name: "WealthWise",
     category: "FinTech",
-    description: "Democratizing access to investment opportunities through fractional shares.",
+    description: "Democratizing investment access through fractional ownership of premium assets with AI-powered portfolio optimization.",
     image: "bg-gray-300",
-    funding: "$850K"
+    funding: "₹2.7 Cr"
   },
   {
     id: 5,
-    name: "EduLearn",
+    name: "AdaptLearn",
     category: "EdTech",
-    description: "Personalized learning platform using adaptive technology for students.",
+    description: "Personalized learning platform using AI to adapt content difficulty based on student performance patterns.",
     image: "bg-gray-300",
-    funding: "$650K"
+    funding: "₹1.5 Cr"
   },
   {
     id: 6,
-    name: "LogiSmart",
+    name: "SupplySync",
     category: "Supply Chain",
-    description: "Optimizing logistics operations with predictive analytics and IoT.",
+    description: "Optimizing logistics with blockchain-based tracking and IoT sensors for real-time inventory management.",
     image: "bg-gray-300",
-    funding: "$900K"
+    funding: "₹2.2 Cr"
   }
 ];
 
@@ -67,9 +67,9 @@ const Portfolio = () => {
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-16">
           <span className="inline-block text-venture-blue font-semibold tracking-wider uppercase text-sm mb-2">Our Portfolio</span>
-          <h2 className="section-title">Success Stories</h2>
+          <h2 className="section-title">Venture Showcase</h2>
           <p className="section-subtitle">
-            Innovative startups that have flourished with our support and guidance.
+            Meet the innovative startups that have grown with VentureLab's support and are now making an impact in their industries.
           </p>
         </div>
         
@@ -90,7 +90,7 @@ const Portfolio = () => {
           {filteredCompanies.map((company) => (
             <div key={company.id} className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300">
               <div className={`h-48 ${company.image} flex items-center justify-center text-white text-xl`}>
-                {company.name} Logo
+                {company.name}
               </div>
               <div className="p-6">
                 <div className="flex justify-between items-center mb-3">
@@ -100,7 +100,7 @@ const Portfolio = () => {
                 <p className="text-gray-700 mb-4">{company.description}</p>
                 <div className="flex justify-between items-center">
                   <span className="text-sm text-gray-500">Funding Raised: <span className="text-venture-blue font-medium">{company.funding}</span></span>
-                  <Button variant="ghost" className="text-venture-blue hover:text-venture-blue hover:bg-venture-blue/10">Learn More</Button>
+                  <Button variant="ghost" className="text-venture-blue hover:text-venture-blue hover:bg-venture-blue/10">Company Profile</Button>
                 </div>
               </div>
             </div>
@@ -109,7 +109,7 @@ const Portfolio = () => {
         
         <div className="mt-12 text-center">
           <Button variant="outline" size="lg" className="border-venture-blue text-venture-blue hover:bg-venture-blue hover:text-white">
-            View All Portfolio Companies
+            View All Portfolio Startups
           </Button>
         </div>
       </div>

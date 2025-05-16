@@ -31,23 +31,23 @@ const Hero = () => {
           >
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-venture-blue/10 text-venture-blue font-semibold rounded-full text-sm">
               <span className="w-2 h-2 rounded-full bg-venture-blue animate-pulse"></span> 
-              VentureLab Thapar
+              Thapar Institute of Engineering & Technology
             </div>
             
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-venture-dark font-heading leading-tight">
-              Where <span className="text-venture-blue">Innovation</span> Meets <span className="text-venture-accent">Opportunity</span>
+              Transforming <span className="text-venture-blue">Ideas</span> into <span className="text-venture-accent">Enterprise</span>
             </h1>
             
             <p className="text-lg md:text-xl text-gray-700">
-              Empowering entrepreneurs with mentorship, resources, and funding to transform innovative ideas into successful ventures.
+              VentureLab Thapar incubates and accelerates startups through expert mentorship, state-of-the-art resources, and strategic funding access in our innovation ecosystem.
             </p>
             
             <div className="flex flex-wrap gap-4 pt-4">
               <Button size="lg" className="gradient-bg hover:opacity-90 gap-2 rounded-full">
-                Apply Now <ArrowRight className="h-4 w-4" />
+                Submit Your Proposal <ArrowRight className="h-4 w-4" />
               </Button>
               <Button size="lg" variant="outline" className="border-2 border-venture-blue text-venture-blue hover:bg-venture-blue hover:text-white rounded-full">
-                Learn More
+                Explore Programs
               </Button>
             </div>
             
@@ -57,12 +57,12 @@ const Hero = () => {
               transition={{ duration: 0.5, delay: 0.8 }}
               className="pt-12"
             >
-              <p className="text-venture-dark font-medium mb-3">Trusted By</p>
+              <p className="text-venture-dark font-medium mb-3">Partners & Collaborators</p>
               <div className="flex flex-wrap gap-8 items-center">
-                <div className="w-24 h-12 bg-white rounded-lg shadow-sm flex items-center justify-center opacity-80 hover:opacity-100 transition-opacity">Logo 1</div>
-                <div className="w-24 h-12 bg-white rounded-lg shadow-sm flex items-center justify-center opacity-80 hover:opacity-100 transition-opacity">Logo 2</div>
-                <div className="w-24 h-12 bg-white rounded-lg shadow-sm flex items-center justify-center opacity-80 hover:opacity-100 transition-opacity">Logo 3</div>
-                <div className="w-24 h-12 bg-white rounded-lg shadow-sm flex items-center justify-center opacity-80 hover:opacity-100 transition-opacity">Logo 4</div>
+                <div className="w-24 h-12 bg-white rounded-lg shadow-sm flex items-center justify-center opacity-80 hover:opacity-100 transition-opacity">TBI</div>
+                <div className="w-24 h-12 bg-white rounded-lg shadow-sm flex items-center justify-center opacity-80 hover:opacity-100 transition-opacity">NIDHI</div>
+                <div className="w-24 h-12 bg-white rounded-lg shadow-sm flex items-center justify-center opacity-80 hover:opacity-100 transition-opacity">TIET</div>
+                <div className="w-24 h-12 bg-white rounded-lg shadow-sm flex items-center justify-center opacity-80 hover:opacity-100 transition-opacity">DST</div>
               </div>
             </motion.div>
           </motion.div>
@@ -77,7 +77,7 @@ const Hero = () => {
               <div className="absolute -top-6 -right-6 w-40 h-40 bg-venture-accent/10 rounded-full z-0"></div>
               <div className="w-full max-w-lg h-[500px] bg-gray-200 rounded-2xl shadow-lg relative z-10 flex items-center justify-center overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-venture-blue/20 to-venture-accent/20"></div>
-                <p className="text-venture-dark">Hero Image</p>
+                <p className="text-venture-dark">VentureLab Innovation Hub</p>
               </div>
               <div className="absolute -bottom-6 -left-6 w-40 h-40 bg-venture-blue/10 rounded-full z-0"></div>
             </div>

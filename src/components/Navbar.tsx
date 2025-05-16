@@ -24,7 +24,7 @@ const Navbar = () => {
   }, []);
 
   const navLinks = [
-    { name: "About Us", href: "#about" },
+    { name: "About", href: "#about" },
     { name: "Programs", href: "#programs" },
     { name: "Portfolio", href: "#portfolio" },
     { name: "Mentors", href: "#mentors" },
@@ -44,7 +44,7 @@ const Navbar = () => {
           <span className={`text-xl md:text-2xl font-bold transition-colors duration-300 ${
             isScrolled ? "text-venture-blue" : "text-venture-dark"
           }`}>
-            Venture<span className="text-venture-accent">Lab</span>
+            Venture<span className="text-venture-accent">Lab</span> Thapar
           </span>
         </a>
         
@@ -61,7 +61,7 @@ const Navbar = () => {
               {link.name}
             </a>
           ))}
-          <Button className="gradient-bg hover:opacity-90 rounded-full">Apply Now</Button>
+          <Button className="gradient-bg hover:opacity-90 rounded-full">Get Started</Button>
         </nav>
         
         {/* Mobile Menu Button */}
@@ -99,7 +99,7 @@ const Navbar = () => {
                   {link.name}
                 </a>
               ))}
-              <Button className="gradient-bg hover:opacity-90 w-full mt-4 rounded-full">Apply Now</Button>
+              <Button className="gradient-bg hover:opacity-90 w-full mt-4 rounded-full">Get Started</Button>
             </nav>
           </motion.div>
         )}
